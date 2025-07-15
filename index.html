@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EZ-AI | Empowering Businesses with AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background-color: #F1F5F9;
+      color: #111827;
+      line-height: 1.6;
+    }
+    header {
+      background: #06B6D4;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .hero {
+      
+      text-align: center;
+      padding: 4rem 1rem;
+      color: #111827;
+      background-color: rgba(255, 255, 255, 0.7);
+      backdrop-filter: brightness(1.1);
+    }
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      background-color: rgba(255, 255, 255, 0.85);
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      color: #06B6D4;
+    }
+    .hero p {
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      font-size: 1rem;
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 1rem;
+      border-radius: 6px;
+      color: #1F2937;
+    }
+    .cta {
+      padding: 0.75rem 1.5rem;
+      background-color: #06B6D4;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+    }
+    section {
+      padding: 3rem 1rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .services-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .service {
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+    .service img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 6px;
+      margin-bottom: 1rem;
+    }
+    .service h3 {
+      margin-bottom: 0.75rem;
+      color: #06B6D4;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 100%;
+      margin: auto;
+      padding: 0 1rem;
+    }
+    input, textarea, button {
+      padding: 0.75rem;
+      border: 1px solid #64748B;
+      border-radius: 6px;
+      width: 100%;
+    }
+    button {
+      background-color: #06B6D4;
+      color: white;
+      border: none;
+      font-weight: bold;
+    }
+    footer {
+      background: #1F2937;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 4rem;
+    }
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav ul {
+        flex-direction: column;
+        width: 100%;
+        padding-top: 1rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><strong>EZ-AI</strong></div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <h1>Empowering Businesses with AI Intelligence</h1>
+    <p>
+      Based in Los Angeles, EZ-AI elevates the digital presence of businesses through AI-powered SEO and digital marketing solutions.
+    </p>
+    <a href="#contact" class="cta">Get a Free AI SEO Audit</a>
+  </section>
+
+  <section id="services">
+    <h2 style="text-align:center">Our Core Services</h2>
+    <p style="text-align:center">Tailored to elevate your business with the power of AI and digital strategy.</p>
+    <div class="services-container">
+      <div class="service">
+        <h3>AI-Powered SEO Optimization</h3>
+        <p>Enhance visibility with on-page, technical, and local SEO strategies powered by AI. Designed for maximum visibility in Los Angeles and beyond.</p>
+      </div>
+      <div class="service">
+        <h3>Google Ads / SEM</h3>
+        <p>Run efficient ad campaigns with precision targeting and conversion tracking to maximize ROI and drive immediate traffic.</p>
+      </div>
+      <div class="service">
+        <h3>Meta (Facebook & Instagram) Ads</h3>
+        <p>Use AI to design and test compelling ad creatives on Meta platforms to reach and convert more customers.</p>
+      </div>
+      <div class="service">
+        <h3>Graphic Design & Video Production</h3>
+        <p>Create stunning visual and video content to engage audiences and support campaigns across all platforms.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 style="text-align:center">Get in Touch</h2>
+    <p style="text-align:center">Ready to grow your business with AI? Send us a message and we'll get back to you shortly.</p>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Tell us about your business..." required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 EZ-AI. Empowering Businesses with AI Intelligence.</p>
+  </footer>
+</body>
+</html>
