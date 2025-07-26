@@ -10,7 +10,7 @@
       font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #5D4FFF, #40C4FF, #FF8A65);
+      background: linear-gradient(135deg, #edf3f8, #f8f9fb);
       color: #222;
     }
     header, section {
@@ -19,14 +19,11 @@
       margin: auto;
     }
     header {
-      background-color: #fff;
+      background: linear-gradient(135deg, #e3eaf2, #f0f4f8);
       text-align: center;
       border-radius: 0 0 20px 20px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    header img {
-      width: 100px;
-      margin-top: 20px;
+      animation: fadeIn 1.2s ease-in-out;
     }
     h1, h2 {
       margin: 20px 0;
@@ -39,41 +36,60 @@
       display: inline-block;
       margin: 20px 0;
       padding: 12px 24px;
-      background-color: #4a148c;
+      background-color: #1976d2;
       color: white;
       text-decoration: none;
       border-radius: 6px;
       font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+    .cta-button:hover {
+      transform: scale(1.05);
     }
     .track {
-      background-color: #fff;
+      background: linear-gradient(135deg, #e3eaf2, #f9fbfd);
       padding: 16px;
       border-radius: 10px;
       margin-bottom: 24px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      animation: slideUp 0.8s ease-in-out;
     }
     ul {
       padding-left: 20px;
     }
     .summary {
-      background: #fff;
+      background: linear-gradient(135deg, #e3eaf2, #f9fbfd);
       padding: 24px;
       border-radius: 10px;
       margin-top: 30px;
       text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      animation: fadeIn 1.4s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
   <header>
-    <img src="EZ-AI Tech Company Logo with Soft Gradients.png" alt="EZ-AI Logo">
     <h1>AI Coaching with Kalyani Verma</h1>
     <p class="tagline">"AI won't replace you. But the people who know AI might. Learn it before they do."</p>
     <a href="#start" class="cta-button">Book Your Free Consultation</a>
   </header>
 
   <section>
-    <h2>Coaching Tracks</h2>
+  <h2>Coaching Tracks</h2>
+<div class="track">
+      <h3>Personalized AI Coaching</h3>
+      <p>Work directly with Kalyani to tailor AI tools and strategies to your career, workflow, or business. Great for professionals looking to go deeper with 1:1 support.</p>
+      <p><strong>$49/hr | Flexible scheduling & hands-on guidance</strong></p>
+    </div>
 
     <div class="track">
       <h3>AI Essentials Bootcamp</h3>
@@ -83,8 +99,8 @@
 
     <div class="track">
       <h3>Copilot Power User Track</h3>
-      <p>Get hands-on with Microsoft 365 Copilot and boost your productivity across Word, Excel, and more.</p>
-      <p><strong>$499 | 3 Live Sessions + Demos</strong></p>
+      <p>Get hands-on with Microsoft 365 Copilot and boost your productivity across Word, Excel, and more. Includes 3 live sessions and 2 one-on-one half-hour coaching calls for personalized support.</p>
+      <p><strong>$499 | 3 Live Sessions + 2 Private Coaching Calls</strong></p>
     </div>
   </section>
 
@@ -93,5 +109,36 @@
     <p>No AI background needed. All sessions are live and interactive.<br>Learn from a Microsoft AI leader and transform how you work.</p>
     <a href="#" class="cta-button">Join the AI Coaching Program</a>
   </section>
+
+  <section class="summary">
+    <h2>Book Your Free Consultation</h2>
+    <form action="https://formsubmit.co/kalyani@ezaillc.onmicrosoft.com" method="POST" style="text-align:left; max-width: 600px; margin: 0 auto;">
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name" required style="width:100%; padding:10px; margin-bottom:15px;"><br>
+
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required style="width:100%; padding:10px; margin-bottom:15px;"><br>
+
+      <label for="phone">Phone Number:</label><br>
+      <input type="tel" id="phone" name="phone" style="width:100%; padding:10px; margin-bottom:15px;"><br>
+
+      <label for="profession">Profession:</label><br>
+      <input type="text" id="profession" name="profession" style="width:100%; padding:10px; margin-bottom:15px;"><br>
+
+      <label for="track">Coaching Track Interested In:</label><br>
+      <select id="track" name="track" style="width:100%; padding:10px; margin-bottom:15px;">
+        <option value="Personalized AI Coaching">Personalized AI Coaching</option>
+        <option value="AI Essentials Bootcamp">AI Essentials Bootcamp</option>
+        <option value="Copilot Power User Track">Copilot Power User Track</option>
+        <option value="Not Sure Yet">Not Sure Yet</option>
+      </select><br>
+
+      <label for="description">What do you need help with?</label><br>
+      <textarea id="description" name="description" rows="4" style="width:100%; padding:10px; margin-bottom:15px;"></textarea><br>
+
+      <button type="submit" class="cta-button">Submit</button>
+    </form>
+  </section>
+
 </body>
 </html>
