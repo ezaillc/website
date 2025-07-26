@@ -76,6 +76,14 @@
     }
   </style>
 </head>
+<div id="modal-placeholder"></div>
+<script>
+  fetch("contact-modal.html")
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById("modal-placeholder").innerHTML = html;
+    });
+</script>
 
   <nav style="background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%); padding: 15px 0; display: flex; justify-content: center; gap: 24px; font-weight: 600;">
   <a href="index.html" style="color: white; text-decoration: none;">Home</a>
