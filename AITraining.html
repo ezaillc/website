@@ -99,7 +99,14 @@
 
 
 </head>
-
+<div id="modal-placeholder"></div>
+<script>
+  fetch("contact-modal.html")
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById("modal-placeholder").innerHTML = html;
+    });
+</script>
   
 <body>
 
@@ -112,7 +119,7 @@
 </nav>
 
 <header>
-    <img src="EZ-AI Tech Company Logo with Soft Gradients.png" alt="EZ-AI Logo" style="max-width: 120px; margin-bottom: 10px;">
+    <img src="logo.png" alt="EZ-AI Logo" style="max-width: 120px; margin-bottom: 10px;">
 <h1>AI Coaching with Kalyani Verma</h1>
     <p class="tagline">"AI won't replace you. But the people who know AI might. Learn it before they do."</p>
     <a href="#contact-form" class="cta-button">Book Your Free Consultation</a>
@@ -193,14 +200,7 @@
       }
     </style>
   </section>
-<div id="modal-placeholder"></div>
-<script>
-  fetch("contact-modal.html")
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById("modal-placeholder").innerHTML = html;
-    });
-</script>
+
 <script src="modal.js"></script>
 </body>
 </html>
