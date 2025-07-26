@@ -22,6 +22,15 @@
     }
   </style>
 </head>
+<div id="modal-placeholder"></div>
+<script>
+  fetch("contact-modal.html")
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById("modal-placeholder").innerHTML = html;
+    });
+</script>
+
 <body class="bg-gradient-to-br from-purple-500 via-blue-500 to-yellow-300 text-white font-sans m-0">
 
   <!-- Header -->
