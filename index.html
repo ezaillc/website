@@ -35,7 +35,7 @@
     .brand .dot{width:12px;height:12px;border-radius:50%;background:var(--brand)}
     .hamburger{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:10px;border:1px solid rgba(167,139,250,.35);background:transparent;color:#fdf4ff;font-size:20px}
     .menu{display:none}
-    .mobile-panel{display:none;position:fixed;left:0;right:0;top:60px;background:#1e1b4b;border-top:1px solid rgba(167,139,250,.35);padding:10px 4vw}
+    .mobile-panel{display:none;position:fixed;left:0;right:0;top:60px;background:#1e1b4b;border-top:1px solid rgba(167,139,250,.35);padding:10px 4vw;z-index:60}
     .mobile-panel a{display:block;color:#fdf4ff;text-decoration:none;padding:12px 0;border-bottom:1px dashed rgba(167,139,250,.25);font-weight:700}
     .mobile-panel.is-open{display:block}
 
@@ -267,20 +267,34 @@
     </div>
   </footer>
 
-  <script>
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
+<script>
+  // Year
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Mobile menu toggle
-    const btn = document.getElementById('menuBtn');
-    const panel = document.getElementById('mPanel');
-    btn?.addEventListener('click', ()=>{
+  // Mobile menu toggle
+  const btn = document.getElementById('menuBtn');
+  const panel = document.getElementById('mPanel');
+
+  if (btn && panel) {
+    const closePanel = () => {
+      panel.classList.remove('is-open');
+      btn.setAttribute('aria-expanded', 'false');
+      panel.setAttribute('aria-hidden', 'true');
+    };
+
+    btn.addEventListener('click', () => {
       const open = panel.classList.toggle('is-open');
-      btn.setAttribute('aria-expanded', open ? 'true':'false');
-      panel.setAttribute('aria-hidden', open ? 'false':'true');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      panel.setAttribute('aria-hidden', open ? 'false' : 'true');
     });
-    panel?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
-    panel.classList.remove('is-open');
-    btn.setAttribute('aria-expanded', 'false');
-    panel.setAttribute('aria-hidden', 'true');
-  }));
+
+    // Close on link click
+    panel.querySelectorAll('a').forEach(a => a.addEventListener('click', closePanel));
+
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closePanel();
+    });
+  }
+</script>
+
