@@ -1,77 +1,340 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EZ-AI | Empower Your Business</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/forms@0.5.2/dist/forms.min.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EZ-AI — Learn AI. Apply AI. Lead with AI.</title>
+  <meta name="description" content="EZ-AI makes Artificial Intelligence simple, practical, and accessible through hands-on programs for beginners, middle school students, and business professionals." />
+  <meta property="og:title" content="EZ-AI — Learn AI. Apply AI. Lead with AI." />
+  <meta property="og:description" content="AI Made EZ: bootcamps for beginners, Explorers Club for students, and AI for Business Professionals." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="hero.jpg" />
+  <meta name="theme-color" content="#111827" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;800&display=swap" rel="stylesheet" />
+
   <style>
-    .fade-in {
-      animation: fadeInUp 1.2s ease-out both;
+    :root{
+      --ink-900:#1f2937; --ink-700:#334155; --ink-500:#64748b; --ink-100:#f1f5f9;
+      --paper:#ffffff; --muted:#f8fafc; --radius:14px; --shadow:0 10px 25px rgba(15,23,42,.12); --shadow-sm:0 6px 18px rgba(15,23,42,.10);
     }
-    @keyframes fadeInUp {
-      0% {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+
+    /* === THEME PALETTE: NOIR & CYAN (active) === */
+    .theme-noir-cyan{ --brand-1:#111827; --brand-2:#06b6d4; --brand-3:#f1f5f9; --ring:2px solid rgba(6,182,212,.35); --grad-main:linear-gradient(135deg,var(--brand-1),var(--brand-2)); --grad-accent:linear-gradient(135deg,var(--brand-2),var(--brand-3)); }
+
+    /* Light Blue background for main */
+    body.bg-light-blue main{background:linear-gradient(135deg,#e0f2fe,#fef9c3)}
+
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink-900);background:var(--paper);line-height:1.6}
+    h1,h2,h3{font-family:Poppins,Inter,system-ui,Arial,sans-serif;line-height:1.2;margin:0 0 .6rem}
+    h1{font-size:clamp(2rem,4.5vw,3.5rem);letter-spacing:-.02em}
+    h2{font-size:clamp(1.5rem,2.8vw,2.25rem)}
+    h3{font-size:clamp(1.15rem,2.2vw,1.5rem)}
+    p{margin:.4rem 0 1rem;color:var(--ink-700)}
+    .container{width:min(1180px,92vw);margin-inline:auto}
+    .section{padding:clamp(56px,6vw,96px) 0}
+    .grid{display:grid;gap:clamp(20px,3vw,32px)}
+    .two-col{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .three-col{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .card{background:var(--paper);border-radius:var(--radius);box-shadow:var(--shadow-sm);padding:clamp(18px,2.2vw,24px);border:1px solid #eef2f7}
+
+    /* NAV */
+    .nav{position:sticky;top:0;z-index:60;background:linear-gradient(180deg,rgba(17,24,39,.95),rgba(17,24,39,.85));backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid rgba(6,182,212,.25)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:.75rem 0}
+    .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--brand-2)}
+    .brand img{width:36px;height:36px;border-radius:8px;object-fit:cover}
+    .brand strong{font-family:Poppins;font-size:1.1rem;letter-spacing:.2px;color:var(--brand-2)}
+    .menu{display:flex;gap:18px;align-items:center}
+    .menu a{position:relative;text-decoration:none;color:var(--brand-3);font-weight:700;font-size:.98rem;padding:.45rem .7rem;border-radius:10px;transition:color .25s ease, background .25s ease}
+    .menu a:hover{background:rgba(6,182,212,.15);color:var(--brand-2)}
+    .menu a.active{color:var(--brand-2)}
+    .menu a.active::after{content:"";position:absolute;left:10px;right:10px;bottom:2px;height:2px;background:var(--brand-2);border-radius:2px}
+
+    .hamburger{display:none;background:none;border:0;padding:.4rem;border-radius:10px;color:var(--brand-3)}
+
+    /* MOBILE MENU */
+    .mobile-menu{position:fixed;inset:64px 0 auto 0;background:#111827;border-top:1px solid #06b6d4;padding:14px 4vw;z-index:59;transform:translateY(-8%);opacity:0;pointer-events:none;transition:transform .25s ease, opacity .25s ease}
+    .mobile-menu a{display:block;padding:.9rem 0;border-bottom:1px dashed rgba(6,182,212,.35);color:var(--brand-3);text-decoration:none;font-weight:700}
+    .mobile-menu.is-open{transform:translateY(0);opacity:1;pointer-events:auto}
+
+    /* BUTTONS */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.78rem 1.05rem;border-radius:12px;font-weight:700;text-decoration:none;cursor:pointer;transition:transform .18s ease, box-shadow .18s ease, opacity .18s ease;border:0}
+    .btn-primary{background:var(--grad-main);color:white;box-shadow:var(--shadow);background-size:200% 200%;animation:shine 6s linear infinite}
+    .btn-primary:hover{transform:translateY(-1px)}
+    .btn-ghost{color:var(--brand-2);background:transparent;border:1px solid currentColor;opacity:.9}
+    .btn-ghost:hover{opacity:1}
+
+    /* MAIN */
+    main{transition:background .6s ease}
+
+    /* HERO */
+    .hero{position:relative;overflow:hidden}
+    .hero .container{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(24px,4vw,40px);align-items:center;padding:clamp(40px,6vw,90px) 0}
+    .eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:rgba(6,182,212,.12);color:var(--brand-2);padding:.3rem .6rem;border-radius:999px;font-weight:700;font-size:.8rem}
+    .hero h1 span{background:var(--grad-main);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero-visual{position:relative;min-height:280px;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);background-image:linear-gradient(135deg,#fdfdfb,#f8fafc)}
+
+    /* Decorative background gradients */
+    .section.muted{position:relative;overflow:hidden}
+    .section.muted::before{content:"";position:absolute;inset:-12% -8% -25% -8%;
+      background:radial-gradient(600px 320px at 12% 12%, rgba(6,182,212,.12), transparent 60%),radial-gradient(520px 260px at 88% 24%, rgba(17,24,39,.10), transparent 65%);
+      filter:blur(42px);opacity:.35;pointer-events:none;z-index:0}
+    .section.muted > .container{position:relative;z-index:1}
+
+    @keyframes shine{0%{background-position:0% 50%}100%{background-position:200% 50%}}
+    @keyframes floatUp{0%{transform:translateY(16px);opacity:.0}100%{transform:translateY(0);opacity:1}}
+
+    /* Reveal base */
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity .45s ease, transform .45s ease}
+    .reveal.is-visible{opacity:1;transform:none}
+
+    /* Pillars entrance + hover */
+    .pillars .card.reveal{opacity:0;transform:translateY(18px) scale(.985)}
+    .pillars .card.reveal.is-visible{animation:pillarIn .7s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:var(--stagger,0ms)}
+    .pillars .card.reveal:nth-child(1){--stagger:0ms}
+    .pillars .card.reveal:nth-child(2){--stagger:120ms}
+    .pillars .card.reveal:nth-child(3){--stagger:240ms}
+    @keyframes pillarIn{to{opacity:1;transform:translateY(0) scale(1)}}
+    .pillars .card:hover{transform:translateY(-4px) scale(1.01);box-shadow:var(--shadow)}
+
+    /* Forms */
+    form{display:grid;gap:12px}
+    input,textarea,select{width:100%;padding:12px 14px;border-radius:12px;border:1px solid #dbe2ea;font:inherit;background:white}
+    input:focus,textarea:focus,select:focus{outline:var(--ring)}
+    .inline{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+    /* Footer */
+    footer{padding:36px 0;color:var(--ink-500);font-size:.95rem}
   </style>
 </head>
-<div id="modal-placeholder"></div>
-<script>
-  fetch("contact-modal.html")
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById("modal-placeholder").innerHTML = html;
-    });
-</script>
-<script src="modal.js"></script>
+<body class="theme-noir-cyan bg-light-blue">
+  <!-- NAV -->
+  <header class="nav" role="banner">
+    <div class="container nav-inner">
+      <a class="brand" href="#home" aria-label="EZ-AI home">
+        <img src="logo.png" alt="EZ-AI logo" />
+        <strong>EZ-AI</strong>
+      </a>
 
-<body class="bg-gradient-to-br from-purple-500 via-blue-500 to-yellow-300 text-white font-sans m-0">
+      <nav class="menu" aria-label="Primary">
+        <a href="#home" data-nav>Home</a>
+        <a href="#about" data-nav>About</a>
+        <a href="#services" data-nav>Services</a>
+        <button class="btn btn-primary" id="openContact" type="button" style="padding:.55rem .85rem">Contact</button>
+      </nav>
+    </div>
 
-  <!-- Header -->
-  <header class="bg-opacity-20 bg-black backdrop-blur-md sticky top-0 z-50">
-    <div class="flex items-center justify-between py-2 px-6">
-      <img src="logo.png" alt="EZ-AI Logo" class="h-14 w-14 rounded-full shadow-md" />
-<nav class="hidden md:flex gap-6 text-white font-medium justify-center w-full">
-          <a href="#" class="hover:text-yellow-200">Home</a>
-          <a href="DigitalMarketing.html" class="hover:text-yellow-200">Digital Marketing</a>
-          <a href="AITraining.html" class="hover:text-yellow-200">AI Training</a>
-          <a href="#" onclick="toggleModal()" class="hover:text-yellow-200">Contact</a>
-        </nav>
-      </div>
+    <!-- Mobile menu panel -->
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Mobile menu" aria-hidden="true">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
     </div>
   </header>
 
-  <!-- Main Section -->
-<section class="min-h-[90vh] flex flex-col md:flex-row items-center justify-between gap-8 px-4 py-10 text-gray-900 fade-in">
-    <!-- Left Text Section -->
-    <div class="w-full md:w-1/2 max-w-md text-left">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white">EZ-AI: Empower Your Business</h1>
-      <p class="text-lg sm:text-xl text-white">EZ-AI helps small businesses supercharge growth through performance marketing and AI training.</p>
+  <main>
+    <!-- HERO -->
+    <section id="home" class="hero" aria-labelledby="home-title">
+      <div class="container">
+        <div class="reveal">
+          <span class="eyebrow">AI Made EZ • For Everyone</span>
+          <h1 id="home-title">Learn AI. <span>Apply AI.</span> Lead with AI.</h1>
+          <p>EZ-AI makes Artificial Intelligence simple, practical, and accessible—through hands-on programs for beginners, middle school students, and business professionals.</p>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px">
+            <a class="btn btn-primary" href="#services">Register for a Program</a>
+            <a class="btn btn-ghost" href="#about">About EZ-AI</a>
+          </div>
+        </div>
+        <div class="hero-visual reveal" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <!-- VALUE PILLARS -->
+    <section class="section muted" aria-label="Why EZ-AI">
+      <div class="container grid three-col pillars">
+        <div class="card reveal"><h3>Approachable</h3><p>AI Made EZ—no prior experience required. We turn curiosity into confidence with plain-English explanations.</p></div>
+        <div class="card reveal"><h3>Hands-on</h3><p>Learn by doing: projects, demos, and real examples that you can use at school, work, or in your business.</p></div>
+        <div class="card reveal"><h3>Outcome-focused</h3><p>Skills that matter—creativity for students, career lift for beginners, and growth for businesses.</p></div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="container grid two-col">
+        <div class="reveal">
+          <h2 id="about-title">About EZ-AI</h2>
+          <p>At <strong>EZ-AI</strong>, we believe Artificial Intelligence doesn’t have to be complicated or intimidating. Our mission is simple: make AI <em>easy, practical, and accessible</em>—for students just starting out, curious beginners exploring new skills, and business professionals looking to stay ahead.</p>
+          <p>We combine years of industry experience with a passion for teaching, turning curiosity into confidence and ideas into real-world impact.</p>
+          <div style="margin-top:10px">
+            <span class="tag" style="display:inline-block;padding:.22rem .55rem;border-radius:999px;font-size:.75rem;font-weight:700;background:rgba(6,182,212,.1);color:#0e7490;margin-right:.35rem">AI Made EZ</span>
+            <span class="tag" style="display:inline-block;padding:.22rem .55rem;border-radius:999px;font-size:.75rem;font-weight:700;background:rgba(6,182,212,.1);color:#0e7490;margin-right:.35rem">Explorers Club</span>
+            <span class="tag" style="display:inline-block;padding:.22rem .55rem;border-radius:999px;font-size:.75rem;font-weight:700;background:rgba(6,182,212,.1);color:#0e7490;margin-right:.35rem">Business AI</span>
+          </div>
+        </div>
+        <div class="card reveal">
+          <h3>About the Coach — Kalyani Verma</h3>
+          <p><strong>Kalyani Verma</strong>, founder and lead coach at EZ-AI, brings 20+ years of experience in technology and product leadership with organizations such as Microsoft, Bank of America, and M&amp;T Bank.</p>
+          <p>She’s built practical AI solutions—from fraud detection to risk ranking—and is passionate about making AI a tool that empowers, not overwhelms. Her unique mix of industry insight and supportive teaching helps every learner apply AI confidently in studies, careers, or businesses.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section muted" aria-labelledby="services-title">
+      <div class="container">
+        <h2 class="reveal" id="services-title">Programs &amp; Services</h2>
+        <div class="grid three-col" style="margin-top:20px">
+          <article class="card program reveal">
+            <h3>AI Made EZ (Bootcamp for Beginners)</h3>
+            <p>Your first step into AI—no coding required. Learn core concepts and try popular tools with guided demos. Leave with practical skills you can use right away.</p>
+            <ul>
+              <li>Foundations of AI, safely &amp; simply</li>
+              <li>Hands-on with useful AI tools</li>
+              <li>Clear use-cases for school &amp; work</li>
+            </ul>
+            <div style="display:flex; gap:10px; flex-wrap:wrap">
+              <a class="btn btn-primary" href="#contact">Register</a>
+              <a class="btn btn-ghost" href="#contact">Ask a Question</a>
+            </div>
+          </article>
+
+          <article class="card program reveal">
+            <h3>AI Explorers Club (Middle School)</h3>
+            <p>Project-based creativity for ages 11–14. Build mini AI projects (games, art, and more) while learning safe, responsible AI—fun, collaborative, and confidence-building.</p>
+            <ul>
+              <li>Guided projects &amp; challenges</li>
+              <li>Responsible AI &amp; digital citizenship</li>
+              <li>Showcase &amp; share creations</li>
+            </ul>
+            <div style="display:flex; gap:10px; flex-wrap:wrap">
+              <a class="btn btn-primary" href="#contact">Join the Club</a>
+              <a class="btn btn-ghost" href="#contact">Parent Questions</a>
+            </div>
+          </article>
+
+          <article class="card program reveal">
+            <h3>AI for Business Professionals</h3>
+            <p>Practical strategies to automate tasks, enhance decision-making, and unlock growth. Apply AI in marketing, finance, and operations—real impact, not theory.</p>
+            <ul>
+              <li>Productivity &amp; automation playbook</li>
+              <li>Use-cases tailored to your team</li>
+              <li>Quick wins + roadmap for scale</li>
+            </ul>
+            <div style="display:flex; gap:10px; flex-wrap:wrap">
+              <a class="btn btn-primary" href="#contact">Book a Session</a>
+              <a class="btn btn-ghost" href="#contact">Request Syllabus</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section muted" aria-labelledby="contact-title">
+      <div class="container grid two-col">
+        <div class="reveal">
+          <h2 id="contact-title">Contact</h2>
+          <p>Have questions or ready to enroll? Send us a message and we’ll respond within one business day.</p>
+          <img src="contact.jpg" alt="Students learning with laptops" class="reveal" loading="lazy" style="width:100%; border-radius:18px; box-shadow:var(--shadow); aspect-ratio: 3/2; object-fit:cover" />
+        </div>
+        <div class="card reveal" role="form" aria-label="Contact form">
+          <form action="https://formsubmit.co/kalyani@ez-ai.pro" method="POST">
+            <input type="hidden" name="_subject" value="New inquiry from EZ-AI website"/>
+            <input type="hidden" name="_captcha" value="true"/>
+            <input type="hidden" name="_next" value="./?success=1#contact"/>
+            <input type="hidden" name="_autoresponse" value="Thanks for reaching out to EZ-AI! We received your message and will respond within one business day."/>
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+            <div class="inline">
+              <div>
+                <label for="name" style="font-weight:600">Full Name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" required />
+              </div>
+              <div>
+                <label for="email" style="font-weight:600">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" required />
+              </div>
+            </div>
+            <div class="inline">
+              <div>
+                <label for="program" style="font-weight:600">Program of Interest</label>
+                <select id="program" name="program">
+                  <option>AI Made EZ (Beginners)</option>
+                  <option>AI Explorers Club (Middle School)</option>
+                  <option>AI for Business Professionals</option>
+                  <option>Other / Not sure</option>
+                </select>
+              </div>
+              <div>
+                <label for="phone" style="font-weight:600">Phone (optional)</label>
+                <input id="phone" name="phone" type="tel" placeholder="+1 (555) 555-5555" />
+              </div>
+            </div>
+            <div>
+              <label for="message" style="font-weight:600">Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell us about your goals…"></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Send Message</button>
+            <p style="font-size:.9rem;color:#64748b">By submitting, you agree to be contacted about EZ-AI programs.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container" style="display:flex;flex-wrap:wrap;align-items:center;gap:12px;justify-content:space-between">
+      <div>&copy; <span id="year"></span> EZ-AI. All rights reserved.</div>
+      <div style="display:flex;gap:12px;align-items:center">
+        <a href="https://facebook.com/" style="text-decoration:none;color:var(--ink-700)" aria-label="Facebook">Facebook</a>
+        <span aria-hidden="true">•</span>
+        <a href="https://instagram.com/ezaillc" style="text-decoration:none;color:var(--ink-700)" aria-label="Instagram">@ezaillc</a>
+        <span aria-hidden="true">•</span>
+        <a href="mailto:kalyani@ez-ai.pro" style="text-decoration:none;color:var(--ink-700)">kalyani@ez-ai.pro</a>
+      </div>
     </div>
+  </footer>
 
-    <!-- Right Boxed Services Section (stacked vertically) -->
-<div class="w-full md:w-1/2 flex flex-col gap-6 max-w-lg">
-  <div class="bg-gradient-to-br from-white via-purple-50 to-purple-100 bg-opacity-90 rounded-lg p-6 shadow-md">
-    <h2 class="text-xl font-semibold text-purple-800 mb-2">Digital Marketing</h2>
-    <p class="text-sm text-gray-800">Unlock $30K in MRR in 90 days with performance marketing, full-funnel campaigns, smart SEO, website optimization, and data-backed strategy.</p>
-    <a href="DigitalMarketing.html" class="inline-block mt-4 text-purple-700 hover:underline font-medium">Learn More</a>
-  </div>
-  <div class="bg-white bg-opacity-90 rounded-lg p-6 shadow-md">
-    <h2 class="text-xl font-semibold text-purple-800 mb-2">AI Training</h2>
-    <p class="text-sm text-gray-800">Get expert-led workshops to upskill your team and integrate AI into your business workflows.</p>
-    <a href="AITraining.html" class="inline-block mt-4 text-purple-700 hover:underline font-medium">Learn More</a>
-  </div>
-</div>
-</div>
-</div>
-</section>
+  <!-- Success Toast (hidden by default) -->
+  <div id="toast" class="toast" role="status" aria-live="polite" style="display:none">Thanks! Your message was sent.</div>
 
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Reveal on scroll
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-visible'); observer.unobserve(e.target);} });
+    },{threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+    // Active link highlighting (scroll spy)
+    const navLinks = Array.from(document.querySelectorAll('a[data-nav]'));
+    const sections = navLinks.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+    const spy = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        const id = '#' + entry.target.id;
+        const link = navLinks.find(a=>a.getAttribute('href')===id);
+        if(link){
+          if(entry.isIntersecting){
+            navLinks.forEach(n=>n.classList.remove('active'));
+            link.classList.add('active');
+          }
+        }
+      });
+    },{rootMargin:'-40% 0px -55% 0px', threshold:[0, .2, .5, 1]});
+    sections.forEach(s=> spy.observe(s));
+
+    // Contact button scroll
+    document.getElementById('openContact')?.addEventListener('click', ()=>{
+      document.getElementById('contact')?.scrollIntoView({behavior:'smooth'});
+    });
+  </script>
 </body>
 </html>
