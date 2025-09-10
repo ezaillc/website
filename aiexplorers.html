@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Explorers – Afterschool AI Program (Grades 6–8)</title>
+  <meta name="description" content="AI Explorers afterschool AI program for grades 6–8. CBSE-aligned, fun, hands-on, project-based learning." />
+  <meta property="og:title" content="AI Explorers – Afterschool AI Program (Grades 6–8)" />
+  <meta property="og:description" content="Fun, CBSE-aligned afterschool AI program for middle schoolers. Learn AI through hands-on activities, mini-projects, and a final showcase." />
+  <meta property="og:image" content="logo.png" />
+  <meta property="og:url" content="https://www.ez-ai.pro/ai-explorers" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png" />
+
+  <!-- Google Analytics (replace with your GA tracking ID) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink-900:#0f172a; --ink-700:#334155; --ink-500:#475569;
+      --brand:#6366f1; --brand-2:#3b82f6; --brand-3:#f59e0b; --brand-4:#10b981; --brand-5:#ec4899;
+      --paper:#ffffff; --muted:#f8fafc;
+      --radius:16px; --shadow:0 16px 40px rgba(2,6,23,.12); --shadow-sm:0 6px 18px rgba(2,6,23,.12);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0; font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial; color:var(--ink-900); background:#f0f9ff}
+    a{color:var(--brand-2); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrap{max-width:1100px; margin:0 auto; padding:24px}
+    header{position:sticky; top:0; z-index:20; backdrop-filter:saturate(180%) blur(8px); background:rgba(255,255,255,.8); border-bottom:1px solid #eaeef5}
+    .nav{display:flex; align-items:center; gap:16px; padding:14px 0}
+    .logo{display:flex; align-items:center; gap:12px}
+    .logo img{width:44px; height:44px; border-radius:50%; box-shadow:var(--shadow-sm)}
+    .logo h1{font-family:Poppins,Inter,sans-serif; font-weight:800; font-size:18px; margin:0; color:var(--brand)}
+    .cta{margin-left:auto; display:flex; gap:12px; align-items:center}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:999px; border:0; cursor:pointer; background:linear-gradient(135deg,var(--brand),var(--brand-2),var(--brand-3)); color:#fff; font-weight:700; font-family:Poppins,sans-serif; box-shadow:0 8px 18px rgba(59,130,246,.35)}
+    .btn:focus,.btn:hover{transform:translateY(-1px)}
+
+    .hero{display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:center; padding:60px 24px; border-radius:20px; background:linear-gradient(135deg, var(--brand-2), var(--brand-3), var(--brand-4), var(--brand-5)); color:#fff; box-shadow:var(--shadow)}
+    .hero h2{font-family:Poppins,sans-serif; font-weight:800; font-size:42px; line-height:1.1; margin:12px 0; color:#fff}
+    .pill{display:inline-flex; gap:10px; align-items:center; background:#fff; color:var(--brand-2); padding:10px 16px; border-radius:999px; font-weight:700; font-family:Poppins,sans-serif; font-size:14px; box-shadow:var(--shadow-sm)}
+    .hero p{color:#fefefe; margin:10px 0 16px; font-size:17px}
+    .hero figure{margin:0}
+    .hero img.poster{width:100%; border-radius:20px; box-shadow:var(--shadow)}
+
+    section{background:#fff; border:1px solid #eef2f7; border-radius:20px; padding:22px; box-shadow:var(--shadow-sm); margin:18px 0}
+    section h3{margin:0 0 14px; font-size:22px; font-family:Poppins,sans-serif; color:var(--brand)}
+
+    ul{margin:8px 0 0 18px; padding-left:0}
+    li{margin:6px 0; color:var(--ink-700)}
+    li strong{color:var(--ink-900)}
+
+    .grid{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:18px}
+    .card{background:var(--muted); border:1px solid #e8edf5; border-radius:16px; padding:16px; transition:transform .2s}
+    .card:hover{transform:translateY(-3px)}
+
+    .details{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px}
+    .detail{background:var(--muted); border:1px dashed #d7deea; border-radius:14px; padding:14px}
+
+    .contact{display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:14px}
+    .contact a{font-weight:700}
+
+    footer{padding:36px 0 56px; text-align:center; color:var(--ink-500)}
+
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr; text-align:center}
+      .cta{margin:8px auto 0}
+      .grid,.details,.contact{grid-template-columns:1fr}
+      .hero h2{font-size:32px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="logo">
+        <img src="logo.png" alt="EZ-AI Logo" />
+        <h1>AI Explorers</h1>
+      </div>
+      <div class="cta">
+        <a class="btn" href="https://www.ez-ai.pro" target="_blank" rel="noopener">🏠 Training Home</a>
+        <a class="btn" href="https://forms.office.com/r/xqzAFwgYVq" target="_blank" rel="noopener">🔗 Register Now</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <span class="pill">👨‍👩‍👧‍👦 Afterschool AI Program (Grades 6–8)</span>
+        <h2>Online · CBSE-Aligned · Fun & Hands-On · Project-Based Learning</h2>
+        <p><strong>🌐 Register here:</strong> <a href="https://forms.office.com/r/xqzAFwgYVq" target="_blank" rel="noopener" style="color:#fff; text-decoration:underline">https://forms.office.com/r/xqzAFwgYVq</a></p>
+        <p style="margin-top:14px; color:#fefefe">Make AI learning practical, safe, and confidence-building for middle schoolers.</p>
+        <a class="btn" href="https://forms.office.com/r/xqzAFwgYVq" target="_blank" rel="noopener">✅ Join the AI Explorers Club</a>
+      </div>
+      <figure>
+        <img class="poster" src="poster.jpg" alt="AI Explorers Poster" />
+      </figure>
+    </section>
+
+    <!-- Remaining sections unchanged -->
+    <section>
+      <h3>✅ What Will Your Child Learn?</h3>
+      <div class="grid">
+        <div class="card">
+          <ul>
+            <li>🧠 <strong>Introduction to AI</strong>
+              <ul>
+                <li>What is Artificial Intelligence?</li>
+                <li>How is AI different from automation?</li>
+                <li>Where do we see AI in everyday life?</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="card">
+          <ul>
+            <li>📸 <strong>Core AI Domains</strong>
+              <ul>
+                <li>Computer Vision: How machines "see" images</li>
+                <li>NLP (Natural Language Processing): How machines understand language</li>
+                <li>Data & Analytics: How machines spot patterns in numbers</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="card">
+          <ul>
+            <li>⚖️ <strong>Ethics & Responsible Use</strong>
+              <ul>
+                <li>Learn safe and fair use of AI tools</li>
+                <li>Understand privacy, bias, and fairness in AI</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="card">
+          <ul>
+            <li>🧪 <strong>Hands-On Activities</strong>
+              <ul>
+                <li>AI music & art games, drawing tools</li>
+                <li>Mini-projects and group challenges</li>
+                <li>Explore real-world AI apps using safe online tools</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="card">
+          <ul>
+            <li>🛠 <strong>Mini Project Development</strong>
+              <ul>
+                <li>Learn the AI Project Cycle: <em>Problem → Data → Model → Ethics → Presentation</em></li>
+                <li>Plan and present a simple AI idea or solution</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="card">
+          <ul>
+            <li>🌍 <strong>21st-Century Skills</strong>
+              <ul>
+                <li>Creativity, critical thinking</li>
+                <li>Collaboration and digital communication</li>
+              </ul>
+            </li>
+            <li style="margin-top:10px">🎤 <strong>Final Showcase</strong>
+              <ul>
+                <li>Present AI projects to peers and parents</li>
+                <li>Celebrate learning with confidence!</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h3>🗓️ Program Details</h3>
+      <div class="details">
+        <div class="detail"><strong>Duration:</strong> 2–3 months</div>
+        <div class="detail"><strong>Schedule:</strong> Online, twice a week</div>
+        <div class="detail"><strong>Timings:</strong> Typically Tue/Thu, 7–8 PM</div>
+        <div class="detail"><strong>Fee:</strong> ₹4,500 total (includes all sessions, digital materials, and project showcase)</div>
+      </div>
+    </section>
+
+    <section>
+      <h3>📬 Contact Details</h3>
+      <div class="contact">
+        <div><strong>WhatsApp:</strong> <a href="https://wa.me/919100731644" target="_blank" rel="noopener">+91 9100731644</a></div>
+        <div><strong>Email:</strong> <a href="mailto:kalyani@ez-ai.pro">kalyani@ez-ai.pro</a></div>
+        <div><strong>Website:</strong> <a href="https://www.ez-ai.pro" target="_blank" rel="noopener">www.ez-ai.pro</a></div>
+      </div>
+    </section>
+
+    <section>
+      <h3>📱 Quick Access</h3>
+      <p>Scan the QR code below or click the registration link above to join the AI Explorers Club today!</p>
+      <img class="poster" src="qr.png" alt="Parent Flyer QR Panel" style="max-width:680px; width:100%; display:block; margin:8px auto 0; border-radius:18px; box-shadow:var(--shadow)"/>
+    </section>
+
+    <section style="text-align:center">
+      <a class="btn" href="https://forms.office.com/r/xqzAFwgYVq" target="_blank" rel="noopener">Register for AI Explorers</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap" style="text-align:center">
+      <div>© <span id="year"></span> EZ-AI · CBSE-aligned, student-friendly AI learning</div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
