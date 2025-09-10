@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI@Work – 5-Session Program (+ Bonus) | EZ-AI</title>
+  <meta name="description" content="AI@Work is a practical 5-session program (+ bonus) to help working professionals understand AI & ML and build a Personal AI Playbook.">
+  <style>
+    :root{
+      --bg:#0b1220; --panel:#0f172a; --ink:#e5e7eb; --muted:#9aa5b1;
+      --brand:#7c3aed; --brand2:#22d3ee; --accent:#10b981; --alert:#f59e0b;
+      --radius:16px; --shadow:0 14px 34px rgba(1,8,22,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:linear-gradient(180deg,var(--bg),#0a1020);color:var(--ink);font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
+    a{color:var(--brand2);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:40;backdrop-filter:saturate(1.3) blur(8px);
+      background:rgba(11,18,32,.7);border-bottom:1px solid rgba(255,255,255,.06)}
+    .h-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;max-width:1100px;margin:0 auto;padding:10px 24px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:40px;height:40px;border-radius:999px;object-fit:cover}
+    .brand h1{font-size:16px;margin:0;font-weight:700}
+
+    /* Nav base */
+    nav{display:flex;align-items:center;gap:18px;font-size:15px;font-weight:600}
+    nav a{position:relative;color:var(--ink);opacity:.9;text-transform:uppercase;letter-spacing:.5px;padding:8px 2px}
+    nav a::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:2px;background:linear-gradient(90deg,var(--brand),var(--brand2));transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+    nav a:hover{opacity:1}
+    nav a:hover::after{transform:scaleX(1)}
+    nav a.active{color:#fff}
+    nav a.active::after{transform:scaleX(1)}
+
+    /* CTA button */
+    .btn{appearance:none;border:0;border-radius:999px;padding:10px 14px;font-weight:700;cursor:pointer;color:#0b1220;background:linear-gradient(90deg,var(--brand),#3b82f6 60%,var(--brand2));box-shadow:0 10px 28px rgba(124,58,237,.35);transition:transform .15s ease, filter .15s ease}
+    .btn:hover{transform:translateY(-1px);filter:brightness(1.06)}
+    .btn:active{transform:translateY(0)}
+    .btn.outline{background:transparent;border:1px solid rgba(255,255,255,.18);color:var(--ink);box-shadow:none}
+    .btn.outline:hover{border-color:rgba(255,255,255,.35)}
+
+    /* Mobile menu */
+    .hamburger{display:none;gap:8px;align-items:center;justify-content:center;width:42px;height:42px;border-radius:10px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.04);cursor:pointer}
+    .hamburger span{display:block;width:20px;height:2px;background:var(--ink);border-radius:2px;box-shadow:0 6px 0 var(--ink),0 -6px 0 var(--ink)}
+
+    @media (max-width: 900px){
+      .hamburger{display:flex}
+      nav{position:absolute;top:64px;right:16px;left:16px;display:none;flex-direction:column;gap:0;background:rgba(11,18,32,.95);border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden}
+      nav a{padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.06)}
+      nav a:last-child{border-bottom:none}
+      nav.open{display:flex}
+      .hero{grid-template-columns:1fr}
+      .grid.cols-2,.grid.cols-3{grid-template-columns:1fr}
+      .hero img{height:auto}
+    }
+
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:center;margin-top:22px}
+    .hero .card{padding:24px}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow)}
+    h2{font-size:28px;margin:0 0 8px}
+    p.lead{font-size:16px;color:#cbd5e1;margin-top:6px}
+    .meta{color:#9aa5b1;font-size:13px;margin:6px 0 16px}
+    .hero .image-wrap{border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+    .hero img{width:100%;height:auto;display:block}
+    .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+
+    @media (min-width: 901px){
+      .hero{align-items:stretch}
+      .hero .card{height:100%;display:flex;flex-direction:column;justify-content:center}
+      .hero-img{height:100%}
+      .hero img{height:100%;width:100%;object-fit:cover;display:block}
+    }
+
+    section{margin-top:26px}
+    .section-title{font-size:22px;margin-bottom:10px}
+    .grid{display:grid;gap:16px}
+    .grid.cols-2{grid-template-columns:1fr 1fr}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+
+    details{border:1px solid rgba(255,255,255,.08);border-radius:12px;overflow:hidden;background:rgba(255,255,255,.02)}
+    summary{list-style:none;padding:14px 16px;cursor:pointer;font-weight:700;background:linear-gradient(90deg, rgba(124,58,237,.10), rgba(34,211,238,.08));border-left:4px solid; border-image:linear-gradient(180deg,var(--brand),var(--brand2)) 1}
+    summary:hover{background:linear-gradient(90deg, rgba(124,58,237,.16), rgba(34,211,238,.12))}
+    summary::-webkit-details-marker{display:none}
+    .content{padding:14px 16px}
+    ul{padding-left:18px}
+    li{margin:4px 0}
+    .callout{margin-top:10px;padding:12px 14px;border-radius:12px;background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.25)}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:rgba(16,185,129,.15);color:#a7f3d0;font-weight:600;font-size:12px}
+
+    .hero-img{border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
+    .contact-card{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;padding:14px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.10);background:linear-gradient(90deg, rgba(255,255,255,.03), rgba(255,255,255,.015))}
+    .contact-card strong{font-size:16px}
+
+    footer{margin:30px 0 10px;color:#9aa5b1;font-size:13px;text-align:center}
+
+    @media print{
+      header{position:static;background:#fff;color:#000}
+      body{background:#fff;color:#000}
+      .card{border:1px solid #ddd;box-shadow:none;background:#fff}
+      a{color:#000;text-decoration:underline}
+      .btn,.hamburger{display:none}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="h-inner">
+      <div class="brand">
+        <img src="EZ-AI Tech Company Logo with Soft Gradients.png" alt="EZ-AI logo">
+        <h1>AI@Work – 5-Session Program</h1>
+      </div>
+      <nav aria-label="Primary" id="primaryNav">
+        <a href="#about">About</a>
+        <a href="#outline">Course Outline</a>
+        <a href="#outcomes">Outcomes</a>
+        <a href="#deliverables">Deliverables</a>
+        <a href="#contact">Register</a>
+      </nav>
+      <button class="hamburger" aria-label="Toggle menu" aria-controls="primaryNav" aria-expanded="false"><span></span></button>
+      <div>
+        <a class="btn outline" href="https://www.ez-ai.pro" target="_blank" rel="noopener">Home</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="card">
+        <h2>Build Your Personal AI Playbook</h2>
+        <p class="lead">A practical 5‑session program (+ bonus) for professionals moving from AI curiosity to confident application.</p>
+        <div class="cta">
+          <a class="btn" href="#outline">Explore Sessions</a>
+          <a class="btn outline" href="AIatWork_CourseOutline.pdf" target="_blank" rel="noopener">Download PDF Outline</a>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="Poster - Build Your Personal Playbook.png" alt="AI@Work poster">
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="card">
+      <h3 class="section-title">About the Program</h3>
+      <p>AI@Work helps working professionals understand Artificial Intelligence and Machine Learning concepts, experience modern tools such as Microsoft Copilot and custom GPTs, and leave with a ready-to-use Personal AI Playbook. The bonus session coaches you to extend your impact with a Team AI Playbook and a manager-ready proposal.</p>
+    </section>
+
+    <!-- Outline -->
+    <section id="outline" class="card">
+      <h3 class="section-title">Course Outline</h3>
+
+      <details open>
+        <summary>Session 1: Understanding AI Fundamentals & Everyday Impact</summary>
+        <div class="content">
+          <ul>
+            <li><strong>What is AI?</strong>
+              <ul>
+                <li>AI Timeline</li>
+                <li>AI vs. traditional programming</li>
+                <li>Demystifying AI terms: Machine Learning, Deep Learning, Neural networks</li>
+                <li>Where AI already shows up in daily life</li>
+                <li>Types of AI - Narrow AI, AGI, GenAI</li>
+              </ul>
+            </li>
+            <li><strong>What is Generative AI?</strong>
+              <ul>
+                <li>Text, images, video, code generation</li>
+                <li>What is LLM?</li>
+                <li>What is multimodal AI?</li>
+                <li>Generative AI Myth Busters</li>
+                <li>Introduction to Prompt Engineering</li>
+              </ul>
+            </li>
+          </ul>
+          <div class="callout">📌 Exercise: Spot the AI → Participants list tools they already use that contain AI.</div>
+        </div>
+      </details>
+
+      <details>
+        <summary>Session 2: Machine Learning, Workplace Tools & AI Ethics</summary>
+        <div class="content">
+          <ul>
+            <li><strong>Types of Machine Learning</strong>
+              <ul>
+                <li>Supervised</li>
+                <li>Unsupervised</li>
+                <li>Reinforcement Learning</li>
+              </ul>
+            </li>
+            <li>Testing and Validating ML Models</li>
+            <li><strong>Tool Showcase: Microsoft Copilot</strong>
+              <ul>
+                <li>Microsoft Copilot Deep Dive
+                  <ul><li>Word, Excel, PowerPoint, Outlook, Teams integration</li></ul>
+                </li>
+              </ul>
+            </li>
+            <li>Top AI tools for professionals</li>
+            <li>Top tools across industry segments - Quick Glance</li>
+            <li>AI Ethics and Safety</li>
+          </ul>
+          <div class="callout">
+            📌 Activity: Survey - AI in Your Workday<br>
+            What tasks in your role could benefit from AI?<br>
+            🔧 Which AI tools are already part of your workflow?<br>
+            💡 What’s one challenge you wish AI could solve for you?<br>
+            Participants will:
+            <ul>
+              <li>Identify current AI tools they use (even unknowingly)</li>
+              <li>Share top use cases relevant to their profession</li>
+              <li>Reflect on unmet needs where AI could add value</li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details>
+        <summary>Session 3: ML Projects & Mapping AI to Your Daily Work (Personal AI Playbook – Part 1)</summary>
+        <div class="content">
+          <ul>
+            <li><strong>End-To-End Machine Learning Project</strong>
+              <ul>
+                <li>Look at the big picture</li>
+                <li>Get the Data</li>
+                <li>Explore and Visualize the data to gain Insights</li>
+              </ul>
+            </li>
+            <li><strong>Framework: Discovering AI Opportunities</strong>
+              <ul>
+                <li>Questionnaire to map daily tasks</li>
+                <li>Label tasks (repetitive, data-heavy, communication, decision, creative)</li>
+              </ul>
+            </li>
+            <li><strong>AI as My Assistant</strong>
+              <ul><li>Drafting, summarization, translation, tone adjustment</li></ul>
+            </li>
+            <li><strong>AI as My Research Partner</strong>
+              <ul><li>Insights from policies, reports, technical docs</li></ul>
+            </li>
+            <li><strong>Personal AI Playbook – Build Steps 1 & 2</strong>
+              <ul><li>Task mapping → AI capability matching</li></ul>
+            </li>
+          </ul>
+          <div class="callout">📌 Capstone: Create Task → AI Capability Map for your role.</div>
+        </div>
+      </details>
+
+      <details>
+        <summary>Session 4: ML Projects & Mapping AI to Your Daily Work (Personal AI Playbook – Part 2)</summary>
+        <div class="content">
+          <ul>
+            <li><strong>End-To-End Machine Learning Project (Contd.)</strong>
+              <ul>
+                <li>Prepare Data for Machine Learning Algorithms</li>
+                <li>Select and Train a Model</li>
+                <li>Fine Tune Your Model</li>
+                <li>Launch , Monitor and Maintain your System</li>
+              </ul>
+            </li>
+            <li><strong>Framework for Selecting AI Use Cases</strong>
+              <ul><li>Effort vs. Impact, Risk vs. Value matrix</li></ul>
+            </li>
+            <li><strong>Designing AI Applications</strong>
+              <ul><li>“What I do now” vs. “What AI can do” vs. “Tool” vs. “Benefit”</li></ul>
+            </li>
+            <li><strong>Choosing the Right Tool</strong>
+              <ul><li>ChatGPT prompts vs. Microsoft Copilot vs. Custom GPT
