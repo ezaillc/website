@@ -51,19 +51,22 @@
       nav a{padding:14px 16px;border-bottom:1px solid rgba(255,255,255,.06)}
       nav a:last-child{border-bottom:none}
       nav.open{display:flex}
-      .hero{grid-template-columns:1fr}
       .grid.cols-2,.grid.cols-3{grid-template-columns:1fr}
-      .hero img{height:auto}
     }
 
-    /* Hero */
-    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:22px;align-items:center;margin-top:22px}
-    .hero .card{padding:24px}
+    /* Hero (Grid with named areas) */
+    .hero{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      grid-template-areas:"text image";
+      gap:22px;align-items:center;margin-top:22px
+    }
+    .hero .card{grid-area:text;padding:24px}
+    .hero .hero-img{grid-area:image;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
     .card{background:linear-gradient(180deg,rgba(255,255,255,.03),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow)}
     h2{font-size:28px;margin:0 0 8px}
     p.lead{font-size:16px;color:#cbd5e1;margin-top:6px}
     .meta{color:#9aa5b1;font-size:13px;margin:6px 0 16px}
-    .hero .image-wrap{border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
     .hero img{width:100%;height:auto;display:block}
     .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
 
@@ -90,7 +93,6 @@
     .callout{margin-top:10px;padding:12px 14px;border-radius:12px;background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.25)}
     .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:rgba(16,185,129,.15);color:#a7f3d0;font-weight:600;font-size:12px}
 
-    .hero-img{border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.08)}
     .contact-card{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;padding:14px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.10);background:linear-gradient(90deg, rgba(255,255,255,.03), rgba(255,255,255,.015))}
     .contact-card strong{font-size:16px}
 
@@ -102,6 +104,19 @@
       .card{border:1px solid #ddd;box-shadow:none;background:#fff}
       a{color:#000;text-decoration:underline}
       .btn,.hamburger{display:none}
+    }
+
+    /* === MOBILE OVERRIDES: place AFTER base hero rules === */
+    @media (max-width: 900px){
+      /* Flip order: image on top, text below */
+      .hero{
+        grid-template-columns:1fr;
+        grid-template-areas:
+          "image"
+          "text";
+      }
+      .hero .card{margin-top:16px} /* spacing between image and text */
+      .hero img{height:auto;object-fit:contain}
     }
   </style>
 </head>
@@ -267,4 +282,124 @@
               <ul><li>“What I do now” vs. “What AI can do” vs. “Tool” vs. “Benefit”</li></ul>
             </li>
             <li><strong>Choosing the Right Tool</strong>
-              <ul><li>ChatGPT prompts vs. Microsoft Copilot vs. Custom GPT
+              <ul><li>ChatGPT prompts vs. Microsoft Copilot vs. Custom GPTs</li></ul>
+            </li>
+            <li><strong>Personal AI Playbook – Build Steps 3 & 4</strong>
+              <ul>
+                <li>Narrow down to 3–5 use cases</li>
+                <li>Document tools + benefits</li>
+              </ul>
+            </li>
+          </ul>
+          <div class="callout">📌 Output: Draft Personal AI Playbook (3–5 use cases).</div>
+        </div>
+      </details>
+
+      <details>
+        <summary>Session 5: Agentic AI, Custom Copilots & Future-Proofing Careers</summary>
+        <div class="content">
+          <ul>
+            <li>End - To - End ML Project - Recap</li>
+            <li><strong>Agentic AI - Introduction to Agentic AI</strong>
+              <ul>
+                <li>AI Agents - Microsoft Researcher, Microsoft Analyst</li>
+                <li>Custom Copilots & GPTs</li>
+              </ul>
+            </li>
+            <li><strong>Future Career Opportunities</strong>
+              <ul>
+                <li>New roles: AI Strategist, AI Adoption Lead, AI Project Manager</li>
+                <li>Upskilling roadmap (courses, certifications, communities)</li>
+              </ul>
+            </li>
+            <li><strong>Personal AI Playbook – Final Step (Step 5)</strong>
+              <ul>
+                <li>Complete and polish your Playbook</li>
+                <li>Define “My AI Action Plan”</li>
+              </ul>
+            </li>
+          </ul>
+          <div class="callout">📌 Final Deliverable: A completed Personal AI Playbook ready to apply in daily work.</div>
+        </div>
+      </details>
+
+      <details>
+        <summary>Bonus Session: Driving AI Adoption in Your Organization</summary>
+        <div class="content">
+          <ul>
+            <li><strong>Framework for Team-Level AI Adoption</strong>
+              <ul><li>Map workflows → Identify pain points → Assign AI “roles” (Analyst, Communicator, Librarian)</li></ul>
+            </li>
+            <li><strong>Team-Level AI Playbook</strong>
+              <ul><li>Extend personal use cases into team processes</li></ul>
+            </li>
+            <li><strong>Draft Manager Proposal</strong>
+              <ul><li>Executive summary, current challenges, AI opportunities, pilot plan, success metrics</li></ul>
+            </li>
+            <li><strong>Pitch Practice</strong>
+              <ul><li>Present Playbook + Proposal as if pitching to your manager</li></ul>
+            </li>
+          </ul>
+          <div class="callout">📌 Output: Team AI Playbook (3–5 team use cases) + Manager Proposal Draft.</div>
+        </div>
+      </details>
+    </section>
+
+    <!-- Outcomes -->
+    <section id="outcomes" class="card">
+      <h3 class="section-title">Final Outcomes</h3>
+      <p>By the end of 5 sessions (+ bonus), participants will be able to:</p>
+      <h4>AI & ML Foundations</h4>
+      <ul>
+        <li>Understand core AI concepts (Narrow AI, AGI, Generative AI) and machine learning basics (supervised, unsupervised, reinforcement learning).</li>
+        <li>Grasp the end-to-end machine learning lifecycle — from data collection and exploration to model training, tuning, deployment, and monitoring.</li>
+        <li>Demystify buzzwords like LLMs, multimodal AI, Copilot, and Agentic AI with clear business-relevant examples.</li>
+      </ul>
+      <h4>Practical Application</h4>
+      <ul>
+        <li>Identify daily work tasks that can be enhanced by AI and map them into Personal AI Playbooks (3–5 high-value use cases).</li>
+        <li>Confidently use AI as an assistant (drafting, summarization, translation, tone adjustment) and AI as a research partner (extracting insights, scanning reports, analyzing policies).</li>
+        <li>Evaluate and select the right AI tool (ChatGPT, Microsoft Copilot, or custom GPTs) based on context, effort/impact, and risk/value trade-offs.</li>
+      </ul>
+      <h4>Career & Future-Readiness</h4>
+      <ul>
+        <li>Explore emerging roles in the AI economy (AI Strategist, AI Adoption Lead, AI Project Manager).</li>
+        <li>Build a personal AI action plan for upskilling, certifications, and practical tool adoption.</li>
+        <li>Gain confidence in experimenting with custom Copilots, GPTs, and Agentic AI workflows.</li>
+      </ul>
+      <h4>Organizational Impact (Bonus Session)</h4>
+      <ul>
+        <li>Extend individual playbooks into Team AI Playbooks (3–5 team-level use cases).</li>
+        <li>Draft and present a Manager Proposal with a pilot plan, success metrics, and adoption roadmap.</li>
+        <li>Practice pitching AI adoption to leadership, linking personal productivity to organizational ROI.</li>
+      </ul>
+    </section>
+
+    <!-- Deliverables -->
+    <section id="deliverables" class="card">
+      <h3 class="section-title">Final Deliverables for Participants</h3>
+      <ul>
+        <li>Personal AI Playbook (3–5 use cases) – tailored to their role.</li>
+        <li>AI Action Plan – personal upskilling and adoption strategy.</li>
+        <li>(Bonus) Team AI Playbook + Manager Proposal Draft – ready to take back to their organization.</li>
+      </ul>
+    </section>
+
+    <!-- Contact / Register -->
+    <section id="contact" class="card">
+      <h3 class="section-title">Learn More</h3>
+      <div class="contact-card">
+        <div>
+          <strong>Contact</strong><br>
+          Email: <a href="mailto:kalyani@ez-ai.pro">kalyani@ez-ai.pro</a><br>
+          WhatsApp: <a href="https://wa.me/9100731644" target="_blank" rel="noopener">+91 9100731644</a>
+        </div>
+        <div class="cta">
+          <a class="btn outline" href="https://wa.me/9100731644" target="_blank" rel="noopener">Chat on WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>© EZ‑AI. All rights reserved.</footer>
+  </div>
+
