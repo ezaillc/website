@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI@Scale — Empower Your Team with Practical AI Skills | EZ-AI</title>
+  <meta name="description" content="AI@Scale is a corporate training program that equips business teams with practical AI skills. Participants gain a Personal AI Playbook, a Ready-to-Use Prompt Guide, a Mini SOP, and an Executive Summary that demonstrates business value." />
+  <meta property="og:title" content="AI@Scale — Empower Your Team with Practical AI Skills" />
+  <meta property="og:description" content="Hands-on corporate training for teams to master AI skills. Deliverables include a Personal AI Playbook, Ready-to-Use Prompt Guide, Mini SOP, and Executive Summary." />
+  <meta property="og:type" content="website" />
+  <style>
+    :root {
+      --bg: #0a1a2f;
+      --fg: #f5faff;
+      --muted: #cbd5e1;
+      --primary: #2563eb;
+      --accent: #06b6d4;
+      --card: rgba(255,255,255,0.08);
+      --border: rgba(255,255,255,0.15);
+      --shadow: 0 8px 24px rgba(0,0,0,0.25);
+      --radius: 18px;
+      --highlight: rgba(37,99,235,0.18);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color: var(--fg); background:
+        radial-gradient(1200px 600px at 10% -10%, #1e3a8a 0%, transparent 60%),
+        radial-gradient(1000px 500px at 100% 0%, #0f172a 0%, transparent 55%),
+        linear-gradient(180deg, #0a1a2f, #0f172a); min-height: 100vh; line-height: 1.6; }
+    a { color: var(--accent); text-decoration: none; transition: all 0.3s ease; font-size: 16px; }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand img { width: 56px; height: 56px; border-radius: 50%; box-shadow: var(--shadow); }
+    .brand h1 { font-size: 22px; margin: 0; letter-spacing: .2px; color: var(--fg); }
+
+    /* Combined Header + Nav */
+    .topnav { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(10px); background: rgba(10,26,47,0.9); border-bottom: 1px solid var(--border); }
+    .topnav-inner { max-width: 1100px; margin: 0 auto; padding: 10px 20px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .nav-left { display: flex; align-items: center; gap: 16px; }
+    .nav-links { display: flex; gap: 18px; align-items: center; }
+    .topnav a { color: var(--fg); opacity: .9; padding: 8px 10px; border-radius: 10px; }
+    .topnav a:hover { opacity: 1; }
+    /* Active link highlight */
+    .nav-link.active { background: var(--highlight); box-shadow: inset 0 0 0 1px var(--border); }
+
+    /* Mobile menu */
+    #menu-toggle { display: none; }
+    .hamburger { display: none; width: 44px; height: 44px; border-radius: 8px; border: 1px solid var(--border); background: rgba(255,255,255,0.06); align-items: center; justify-content: center; cursor: pointer; }
+    .hamburger span { width: 20px; height: 2px; background: var(--fg); position: relative; display: block; }
+    .hamburger span::before, .hamburger span::after { content: ""; position: absolute; left: 0; right: 0; height: 2px; background: var(--fg); }
+    .hamburger span::before { top: -6px; }
+    .hamburger span::after { top: 6px; }
+
+    .cta-btn { background: linear-gradient(135deg, var(--primary), var(--accent)); color:#07101b; padding:10px 18px; border-radius: 999px; font-weight: 600; font-size: 15px; box-shadow: var(--shadow); transition: transform 0.2s ease, box-shadow 0.3s ease; display:inline-block; }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(0,0,0,0.35); }
+
+    .hero { max-width: 1100px; margin: 20px auto; padding: 40px 20px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: stretch; font-size: 16px; color: var(--fg); }
+    .hero-card { position: relative; overflow: hidden; background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 32px; backdrop-filter: blur(8px); box-shadow: var(--shadow); display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s ease; font-size: 16px; color: var(--fg); }
+    .hero-card:hover { transform: translateY(-4px); }
+    h1.hero-title { margin: 8px 0 6px; font-size: 38px; line-height: 1.2; color: var(--fg); }
+    h2.hero-tagline { margin: 0 0 16px; font-size: 22px; font-weight: 400; color: var(--muted); font-style: italic; }
+    p.lead { color: var(--muted); font-size: 16px; margin-bottom: 16px; }
+    .bullets { display:grid; grid-template-columns: 1fr; gap:10px; margin: 14px 0 20px; }
+    .bullets li { list-style:none; background:rgba(255,255,255,0.06); padding:12px 14px; border:1px solid var(--border); border-radius:12px; font-size: 16px; color: var(--fg); }
+
+    /* Mobile hero illustration (only visible on small screens) */
+    .mobile-illust { display:none; position:absolute; right:-20px; bottom:-20px; width:180px; height:180px; opacity:.22; }
+
+    .panel { max-width: 1100px; margin: 0 auto; padding: 30px 20px 40px; font-size: 16px; color: var(--fg); }
+    .grid-3 { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:24px; }
+    .card { background: var(--card); border:1px solid var(--border); border-radius: var(--radius); padding:26px; box-shadow: var(--shadow); transition: transform 0.2s ease; font-size: 16px; color: var(--fg); }
+    .card:hover { transform: translateY(-3px); }
+    .card h3 { margin:0 0 12px; font-size:20px; color: var(--fg); }
+    .sessions li { margin:8px 0; font-size: 16px; color: var(--fg); }
+    .footer { max-width:1100px; margin: 0 auto; padding: 40px 20px 60px; display:grid; grid-template-columns: 1fr 1fr; gap: 32px; color: var(--fg); background: rgba(0,0,0,0.2); border-top: 1px solid var(--border); border-radius: var(--radius) var(--radius) 0 0; font-size: 16px; }
+    .center-cta { text-align:center; padding: 10px 20px 30px; }
+    form { display:grid; gap:14px; font-size: 16px; }
+    input, textarea { width: 100%; padding:14px 16px; border-radius: 12px; border: 1px solid var(--border); background: rgba(255,255,255,0.04); color: var(--fg); font-size: 16px; }
+    button.primary { border: none; background: linear-gradient(135deg, var(--primary), var(--accent)); color:#07101b; padding:14px 20px; border-radius: 12px; font-weight: 600; font-size: 16px; cursor: pointer; transition: transform 0.2s ease; }
+    button.primary:hover { transform: translateY(-2px); }
+
+    /* Back-to-top button */
+    #backToTop { position: fixed; right: 16px; bottom: 16px; border: 1px solid var(--border); background: rgba(255,255,255,0.08); color: var(--fg); padding: 10px 12px; border-radius: 999px; cursor: pointer; box-shadow: var(--shadow); opacity: 0; transform: translateY(10px); pointer-events: none; transition: opacity .2s ease, transform .2s ease; }
+    #backToTop.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+    /* Mobile-first enhancements */
+    @media (max-width: 900px) {
+      .topnav-inner { padding: 10px 14px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .brand img { width: 44px; height: 44px; }
+      .brand h1 { font-size: 18px; }
+
+      /* Drawer menu when toggled */
+      #menu-toggle:checked ~ .drawer { transform: translateY(0); opacity: 1; pointer-events: auto; }
+      .drawer { position: fixed; top: 60px; left: 0; right: 0; background: rgba(10,26,47,0.98); border-top: 1px solid var(--border); display: grid; gap: 12px; padding: 16px; transform: translateY(-10px); opacity: 0; pointer-events: none; transition: transform .2s ease, opacity .2s ease; }
+      .drawer a { padding: 12px 6px; font-size: 16px; }
+
+      .hero { grid-template-columns: 1fr; gap: 16px; padding: 24px 16px; }
+      .hero-card { padding: 18px; }
+      h1.hero-title { font-size: 28px; }
+      h2.hero-tagline { font-size: 18px; }
+      .cta-btn { width: 100%; text-align: center; padding: 12px 18px; }
+      .mobile-illust { display:block; }
+
+      .panel { padding: 20px 16px 28px; }
+      .grid-3 { grid-template-columns: 1fr; gap: 16px; }
+      .card { padding: 18px; }
+
+      .footer { grid-template-columns: 1fr; gap: 18px; padding: 24px 16px 40px; }
+      form { gap: 12px; }
+      input, textarea { padding: 12px 14px; font-size: 16px; }
+      button.primary { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Combined Header with Nav -->
+  <nav class="topnav">
+    <div class="topnav-inner">
+      <div class="nav-left">
+        <div class="brand">
+          <img src="logo.png" alt="EZ-AI logo" />
+          <div>
+            <h1>AI@Scale by EZ-AI</h1>
+          </div>
+        </div>
+        <label for="menu-toggle" class="hamburger" aria-label="Open menu"><span></span></label>
+        <div class="nav-links">
+          <a class="nav-link" href="#overview">Overview</a>
+          <a class="nav-link" href="#outcomes">Outcomes</a>
+          <a class="nav-link" href="#highlights">Highlights</a>
+          <a class="nav-link" href="#contact">Contact</a>
+        </div>
+      </div>
+      <a class="cta-btn" href="#contact">Book a discovery call</a>
+    </div>
+  </nav>
+
+  <section id="overview" class="hero">
+    <div class="hero-card">
+      <svg class="mobile-illust" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#2563eb" />
+            <stop offset="100%" stop-color="#06b6d4" />
+          </linearGradient>
+        </defs>
+        <path d="M40,60 C70,10 160,0 180,80 C180,140 80,200 40,170 C10,140 10,100 40,60 Z" fill="url(#g)"/>
+      </svg>
+      <div>
+        <h1 class="hero-title">AI@Scale</h1>
+        <h2 class="hero-tagline">Empower Your Team with Practical AI Skills</h2>
+        <p class="lead">A hands-on program that equips business teams to use AI confidently. Participants leave with a Personal AI Playbook, a Ready-to-Use Prompt Guide, a Mini SOP, and an Executive Summary.</p>
+        <ul class="bullets">
+          <li>Five live online sessions • ~8 hours total</li>
+          <li>Structured frameworks + guided prompting</li>
+          <li>Designed for business functions (non-technical roles)</li>
+          <li>Powered by our custom GPT: EZ-AI Prompt Guide</li>
+        </ul>
+      </div>
+      <a class="cta-btn" href="#contact">Get pricing & dates</a>
+    </div>
+    <div class="hero-card">
+      <h3 style="margin-top:0">What your teams will take away</h3>
+      <ul class="sessions">
+        <li><b>Personal AI Playbook</b> mapped to their role with 3–5 use cases and ROI estimates.</li>
+        <li><b>Ready-to-Use Prompt Guide</b> with reusable, validated templates.</li>
+        <li><b>Mini SOP</b> to scale a repeatable task team-wide.</li>
+        <li><b>Executive Summary</b> to communicate business value and guardrails.</li>
+      </ul>
+      <hr style="border-color:var(--border); border-style:solid; border-width:1px 0 0; margin:20px 0;" />
+      <p class="lead">Delivery options: 5 weekly sessions • 3 half-days • 2-day intensive</p>
+    </div>
+  </section>
+
+  <section class="panel" id="outcomes">
+    <div class="grid-3">
+      <div class="card">
+        <h3>Why AI@Scale?</h3>
+        <p>AI is embedded across every business function, yet most teams stall at ad-hoc use. AI@Scale turns curiosity into capability with structured, safe, high-impact adoption.</p>
+      </div>
+      <div class="card">
+        <h3>Program Outcomes</h3>
+        <ul>
+          <li>Apply AI confidently to daily work</li>
+          <li>Build 3–5 use cases with ROI</li>
+          <li>Use structured prompting methods</li>
+          <li>Create artifacts leaders can act on</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Powered by EZ-AI</h3>
+        <p>Participants practice prompts and create reusable templates using our custom GPT, <b>EZ-AI Prompt Guide</b>, during workshops.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel" id="highlights">
+    <div class="card">
+      <h3 style="margin-top:0">Course Highlights</h3>
+      <ul class="sessions">
+        <li><b>Session 1:</b> AI Fundamentals & Everyday Impact</li>
+        <li><b>Session 2:</b> Machine Learning, Tools & Ethics</li>
+        <li><b>Session 3:</b> AI Opportunities + Prompting Foundations</li>
+        <li><b>Session 4:</b> Workflows + Advanced Prompting</li>
+        <li><b>Session 5:</b> Capstone — SOP & Executive Summary</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="center-cta">
+    <a class="cta-btn" href="#contact">Get a custom quote</a>
+  </div>
+
+  <section id="contact" class="footer">
+    <div>
+      <h3 style="margin:0 0 8px">Ready to bring AI@Scale to your organization?</h3>
+      <p>Tell us about your team. We will share dates, pricing, and a sample session agenda.</p>
+      <p><b>Email:</b> kalyani@ez-ai.pro<br/><b>Phone:</b> (626) 203-3003</p>
+      <p style="font-size:14px; color: var(--muted)">© 2025 EZ-AI. All rights reserved.</p>
+    </div>
+    <form action="https://formsubmit.co/kalyani@ez-ai.pro" method="POST">
+      <input type="text" placeholder="Your name" required />
+      <input type="email" placeholder="Work email" required />
+      <input type="text" placeholder="Company" />
+      <textarea rows="4" placeholder="What are you hoping to achieve with AI training?"></textarea>
+      <button class="primary" type="submit">Request a discovery call</button>
+    </form>
+  </section>
+
+  <button id="backToTop" aria-label="Back to top">↑</button>
+
+  <script>
+    // Scroll spy: highlight active nav link
+    const sections = [
+      { id: 'overview', el: document.getElementById('overview') },
+      { id: 'outcomes', el: document.getElementById('outcomes') },
+      { id: 'highlights', el: document.getElementById('highlights') },
+      { id: 'contact', el: document.getElementById('contact') },
+    ].filter(s => s.el);
+
+    const navLinks = Array.from(document.querySelectorAll('.nav-link'));
+
+    const spy = () => {
+      const offset = 120; // account for sticky nav height
+      let current = sections[0]?.id;
+      sections.forEach(({ id, el }) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top - offset <= 0) current = id;
+      });
+      navLinks.forEach(a => {
+        if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+        else a.classList.remove('active');
+      });
+    };
+    window.addEventListener('scroll', spy, { passive: true });
+    window.addEventListener('load', spy);
+
+    // Back to top button behavior
+    const backBtn = document.getElementById('backToTop');
+    const toggleBackBtn = () => {
+      if (window.scrollY > 300) backBtn.classList.add('show');
+      else backBtn.classList.remove('show');
+    };
+    window.addEventListener('scroll', toggleBackBtn, { passive: true });
+    backBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
+</body>
+</html>
