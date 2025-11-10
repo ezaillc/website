@@ -81,10 +81,35 @@
     .pill{display:flex; align-items:center; gap:10px; background:var(--glass); padding:10px 12px; border-radius:16px; border:1px solid var(--border); font-size:14px}
     .pill svg{width:18px; height:18px; color:var(--teal)}
 
-    .flyer-wrap{position:relative}
-    .glow{position:absolute; inset:-20px; border-radius:36px; filter:blur(40px); opacity:.4; background: linear-gradient(135deg, var(--teal), var(--bg2), var(--accent))}
-    .card{position:relative; border-radius:24px; background:var(--glass-strong); border:1px solid var(--border); overflow:hidden; backdrop-filter: blur(10px)}
-    .card-inner{padding:18px}
+    .flyer-wrap {
+      position: relative;
+    }
+    
+    .glow {
+      position: absolute;
+      inset: 0; /* remove offset gap */
+      border-radius: 36px;
+      filter: blur(60px); /* softer, more even glow */
+      opacity: 0.4;
+      background: linear-gradient(135deg, var(--teal), var(--bg2), var(--accent));
+      pointer-events: none; /* ensures it's non-interactive */
+    }
+    
+    .card {
+      position: relative;
+      border-radius: 24px;
+      background: var(--glass-strong);
+      border: 1px solid var(--border);
+      overflow: hidden; /* ensures no space inside the border */
+      backdrop-filter: blur(10px);
+      padding: 0; /* remove internal spacing */
+      display: inline-block;
+    }
+    
+    .card-inner {
+      padding: 0; /* eliminates extra space inside */
+    }
+
 
     /* Sections */
     section{padding:48px 0}
@@ -160,7 +185,8 @@
       <div class="container hero-grid">
         <div>
           <div class="eyebrow">BEGINNER‑FRIENDLY • HANDS‑ON</div>
-          <h1>AI Made EZ <span class="h1-accent">India Batch • Nov 21–23</span></h1>
+          <h1>AI Made EZ <span class="h1-accent">India Batch</span></h1>
+          <h1>AI Made EZ <span class="h1-accent">Nov 21–23</span></h1>
           <p class="muted mt-16" style="max-width:640px">A three‑session mini‑course that makes AI feel useful, safe, and fun — whether you’re writing emails, planning events, or creating posters. No prior experience required.</p>
           <div class="mt-24">
             <a class="btn btn-grad" href="https://forms.office.com/r/Pu0uPwmwk7" target="_blank" rel="noreferrer">Reserve Your Spot <span aria-hidden>↗</span></a>
