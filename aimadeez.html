@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Made EZ • India Batch (Nov 21–23)</title>
+  <meta name="description" content="Beginner‑friendly, hands‑on mini‑course that makes AI approachable, practical, and fun. Led by Kalyani Verma." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg1:#5f0a87; /* royal violet */
+      --bg2:#7e57c2; /* soft indigo */
+      --bg3:#00c9ff; /* soft teal */
+      --accent:#ff6b6b; /* coral */
+      --teal:#00e0ff;
+      --text:#ffffff;
+      --glass:rgba(255,255,255,0.08);
+      --glass-strong:rgba(255,255,255,0.10);
+      --border:rgba(255,255,255,0.16);
+    }
+    html,body{height:100%}
+    body{
+      margin:0; color:var(--text); font-family:Inter,system-ui,Arial,Helvetica,sans-serif;
+      background: linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 50%, var(--bg3) 100%) fixed;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    .container{max-width:1120px; margin:0 auto; padding:0 16px}
+    /* NAV */
+    header{position:sticky; top:0; z-index:40; backdrop-filter:saturate(120%) blur(10px); background: rgba(0,0,0,0.3); border-bottom:1px solid var(--border)}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:12px 0}
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{width:36px; height:36px; border-radius:14px; background:linear-gradient(135deg, var(--teal), #7f7fff, var(--accent))}
+    nav a{color:rgba(255,255,255,0.8); text-decoration:none; font-size:14px; margin-left:20px}
+    nav a:hover{color:#fff}
+    .btn{display:inline-flex; align-items:center; gap:8px; padding:10px 16px; border-radius:16px; border:1px solid transparent; cursor:pointer; font-weight:600}
+    .btn-grad {background:linear-gradient(90deg, var(--teal), var(--accent)); color:#101010}
+    .btn-grad:hover{filter:brightness(1.05)}
+    .btn-ghost{background:transparent; color:#fff; border-color:var(--border)}
+    .btn-ghost:hover{background:rgba(255,255,255,0.1)}
+
+    /* HERO */
+    .hero{position:relative; overflow:hidden}
+    .hero-grid{display:grid; grid-template-columns:1fr; gap:40px; padding:64px 0}
+    @media(min-width:900px){.hero-grid{grid-template-columns:1.05fr 0.95fr; padding:96px 0}}
+    .eyebrow{letter-spacing:.2em; color:rgba(0,224,255,.9); font-size:12px; text-transform:uppercase}
+    h1{margin:12px 0 0; font-size:40px; line-height:1.1}
+    @media(min-width:900px){h1{font-size:56px}}
+    .h1-accent{display:block; color:var(--accent)}
+    .muted{color:rgba(255,255,255,.85)}
+    .pills{display:grid; grid-template-columns:1fr; gap:12px; margin-top:24px}
+    @media(min-width:640px){.pills{grid-template-columns:repeat(3,1fr)}}
+    .pill{display:flex; align-items:center; gap:10px; background:var(--glass); padding:10px 12px; border-radius:16px; border:1px solid var(--border); font-size:14px}
+    .pill svg{width:18px; height:18px; color:var(--teal)}
+
+    .flyer-wrap{position:relative}
+    .glow{position:absolute; inset:-20px; border-radius:36px; filter:blur(40px); opacity:.4; background: linear-gradient(135deg, var(--teal), var(--bg2), var(--accent))}
+    .card{position:relative; border-radius:24px; background:var(--glass-strong); border:1px solid var(--border); overflow:hidden; backdrop-filter: blur(10px)}
+    .card-inner{padding:18px}
+
+    /* Sections */
+    section{padding:48px 0}
+    .section-title{font-size:28px; font-weight:700; margin:0 0 20px}
+
+    /* About */
+    .about .card{background:rgba(255,255,255,0.10)}
+    .about h2{color:var(--teal)}
+    .about .sub{color:var(--accent)}
+
+    /* Sessions grid */
+    .grid-3{display:grid; gap:16px}
+    @media(min-width:900px){.grid-3{grid-template-columns:repeat(3, 1fr)}}
+
+    /* Takeaways */
+    .takeaways .card{background:rgba(255,255,255,0.10)}
+    .bullets{display:grid; grid-template-columns:1fr; gap:8px}
+    @media(min-width:900px){.bullets{grid-template-columns:1fr 1fr}}
+
+    /* Bottom CTA */
+    .cta{border-radius:24px; padding:28px; background:linear-gradient(90deg, #00c9ff, #7e57c2 70%, #5f0a87); display:flex; flex-direction:column; gap:16px; align-items:flex-start}
+    @media(min-width:900px){.cta{flex-direction:row; align-items:center; justify-content:space-between; padding:40px}}
+
+    /* FAQ */
+    .faq .grid-2{display:grid; gap:16px}
+    @media(min-width:900px){.faq .grid-2{grid-template-columns:1fr 1fr}}
+
+    /* Footer */
+    footer{border-top:1px solid var(--border); padding:36px 0; text-align:center; color:rgba(255,255,255,.75)}
+    footer a{color:#fff}
+    .footer-cta{display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:14px}
+
+    /* Dialog */
+    dialog{border:none; border-radius:16px; padding:0; background:rgba(22,22,22,0.95); color:#fff}
+    dialog::backdrop{background:rgba(0,0,0,0.5)}
+    .dialog-body{padding:12px 16px 20px}
+    .dialog-header{padding:14px 16px; border-bottom:1px solid var(--border); font-weight:600}
+    .qr{display:flex; justify-content:center; padding:16px}
+    .close{position:absolute; top:10px; right:10px; background:transparent; color:#fff; border:none; font-size:22px; cursor:pointer}
+
+    /* Utility */
+    .mb-0{margin-bottom:0}
+    .mt-0{margin-top:0}
+    .mt-8{margin-top:8px}
+    .mt-16{margin-top:16px}
+    .mt-24{margin-top:24px}
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <img src="logo.png" alt="EZ-AI logo" class="logo-img" />
+        <span style="font-weight:600; letter-spacing:.02em">EZ-AI</span>
+      </div>
+      <nav aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#sessions">Sessions</a>
+        <a href="#takeaways">Takeaways</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div>
+        <a class="btn btn-grad" href="https://forms.office.com/r/Pu0uPwmwk7" target="_blank" rel="noreferrer">Register</a>
+        <button class="btn btn-grad" id="qrBtn" aria-haspopup="dialog" aria-controls="qrDlg" title="Show QR"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="5" height="5"/><rect x="16" y="3" width="5" height="5"/><rect x="3" y="16" width="5" height="5"/><path d="M16 16h1v1h-1z"/><path d="M19 16h2v2h-2z"/><path d="M16 19h2v2h-2z"/></svg> Show QR</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">BEGINNER‑FRIENDLY • HANDS‑ON</div>
+          <h1>AI Made EZ <span class="h1-accent">India Batch • Nov 21–23</span></h1>
+          <p class="muted mt-16" style="max-width:640px">A three‑session mini‑course that makes AI feel useful, safe, and fun — whether you’re writing emails, planning events, or creating posters. No prior experience required.</p>
+          <div class="mt-24">
+            <a class="btn btn-grad" href="https://forms.office.com/r/Pu0uPwmwk7" target="_blank" rel="noreferrer">Reserve Your Spot <span aria-hidden>↗</span></a>
+            <button class="btn btn-grad" id="qrBtnHero" aria-haspopup="dialog" aria-controls="qrDlg">Show QR</button>
+          </div>
+
+          <div class="pills mt-24">
+            <div class="pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              <span>Nov 21–23, 2025</span>
+            </div>
+            <div class="pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12S3 16 3 10a9 9 0 1 1 18 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              <span>Online • Google Meet</span>
+            </div>
+            <div class="pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              <span>6:00–7:00 PM IST</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flyer-wrap">
+          <div class="glow" aria-hidden="true"></div>
+          <div class="card">
+            <img id="flyer-img" alt="AI Made EZ flyer" src="Flyer - Unlock the Power of AI Made EZ (2).png" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="card">
+          <div class="card-inner">
+            <h2 class="section-title">About AI Made EZ</h2>
+            <p class="muted"> <strong>AI Made EZ</strong> is a beginner-friendly, hands-on course designed to make artificial intelligence approachable, practical, and fun. Across three interactive sessions, you'll explore how AI already fits into your daily life, how to use it for communication and creativity, and how to stay safe while doing so. Led by AI educator <strong>Kalyani Verma</strong>, this course blends plain-English explanations with live demos and guided practice using popular tools like ChatGPT, Microsoft Copilot, and Canva AI. No technical background required—just curiosity and a desire to learn.</p>
+            <h3 class="sub mt-24">What You’ll Learn:</h3>
+            <ul class="list">
+              <li>How to explain AI in everyday language and spot it in tools you already use</li>
+              <li>How to write emails, messages, and social posts faster with AI’s help</li>
+              <li>How to design posters and visuals using AI tools like Canva</li>
+              <li>How to use AI safely and responsibly in work and personal life</li>
+            </ul>
+            <p class="mt-24">🎯 Perfect for students, professionals, parents, and anyone curious about AI—no coding required!</p>
+            <h3 class="sub mt-24">About the Trainer</h3>
+            <p class="muted"> <strong>Kalyani Verma</strong> is a seasoned AI strategist and educator with over two decades of experience in enterprise technology, product innovation, and generative AI. She specializes in making complex AI concepts accessible and actionable for professionals, students, and organizations. With certifications from Stanford and DeepLearning.AI, Kalyani blends systems thinking with practical guidance to empower learners in the fast-evolving AI landscape.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SESSIONS -->
+    <section id="sessions">
+      <div class="container">
+        <h2 class="section-title">What You’ll Learn</h2>
+        <div class="grid-3">
+          <!-- Session 1 -->
+          <div class="card"><div class="card-inner">
+            <h3>Session 1 — Understanding AI</h3>
+            <p class="muted mb-0">Goal: build comfort and connect AI to daily life.</p>
+            <ul class="list">
+              <li>AI timeline</li>
+              <li>Plain‑English: machine learning, neural networks, deep learning</li>
+              <li>Spot the AI in everyday life</li>
+              <li>Agentic AI — what agents are and why they matter</li>
+              <li>Demo: Microsoft AI Agents — Researcher & Analyst</li>
+              <li>Top tools for productivity, creativity, small business & hobbies</li>
+            </ul>
+            <p class="mt-16"><strong>Walk away with:</strong></p>
+            <ul class="list">
+              <li>Explain AI in simple language</li>
+              <li>Spot AI in tools you already use</li>
+              <li>Understand what AI agents can do</li>
+              <li>Know the top AI apps for work & home</li>
+            </ul>
+          </div></div>
+
+          <!-- Session 2 -->
+          <div class="card"><div class="card-inner">
+            <h3>Session 2 — Communication Made EZ</h3>
+            <p class="muted mb-0">Goal: make AI feel like a friendly assistant.</p>
+            <ul class="list">
+              <li>Types of AI, Generative AI, LLMs</li>
+              <li>Tools: ChatGPT (desktop) + Copilot mobile app</li>
+              <li>Demo: voice & text for emails, messages, translations</li>
+              <li>Rewrite for clarity and tone</li>
+            </ul>
+            <p class="mt-16"><strong>Hands‑on:</strong> Draft a friendly email + a social post</p>
+            <p class="mt-8"><strong>Bonus:</strong> Custom GPTs + when paid features are worth it</p>
+            <p class="mt-8"><strong>Walk away with:</strong></p>
+            <ul class="list">
+              <li>Write faster with AI’s help</li>
+              <li>Adjust tone & clarity with ease</li>
+              <li>Know when advanced features are useful</li>
+            </ul>
+          </div></div>
+
+          <!-- Session 3 -->
+          <div class="card"><div class="card-inner">
+            <h3>Session 3 — Creativity with AI</h3>
+            <p class="muted mb-0">Goal: have fun and get practical with visuals.</p>
+            <ul class="list">
+              <li>Image & video creation (Canva AI)</li>
+              <li>Guided Canva demo: banners & posters</li>
+            </ul>
+            <p class="mt-16"><strong>Hands‑on:</strong> Design a simple event poster</p>
+            <p class="mt-8"><strong>Ethics & Safety:</strong> Accuracy checks • Avoiding scams • Privacy basics</p>
+            <p class="mt-8"><strong>Walk away with:</strong></p>
+            <ul class="list">
+              <li>Create images, banners & posters</li>
+              <li>Use AI for personal & event needs</li>
+              <li>Practice safe, responsible AI use</li>
+            </ul>
+          </div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAKEAWAYS -->
+    <section id="takeaways" class="takeaways">
+      <div class="container">
+        <div class="card"><div class="card-inner">
+          <h2 class="section-title">What You’ll Walk Away With</h2>
+          <div class="bullets">
+            <div>
+              <div class="check">✓ Simple, everyday explanations of AI</div>
+              <div class="check">✓ Confidence spotting AI in tools you already use</div>
+              <div class="check">✓ A clear sense of what AI agents can do</div>
+              <div class="check">✓ Top apps for productivity, creativity & small business</div>
+            </div>
+            <div>
+              <div class="check">✓ Hands‑on practice you can repeat at home</div>
+              <div class="check">✓ Starter prompts & checklists</div>
+              <div class="check">✓ Optional certificate (light test)</div>
+            </div>
+          </div>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- BOTTOM CTA (Register + QR) -->
+    <section class="bottom-cta">
+      <div class="container">
+        <div class="cta">
+          <div>
+            <h3 class="mt-0" style="font-size:28px; margin-bottom:8px">Ready to get started?</h3>
+            <p class="muted">Reserve your seat now. Limited spots for a friendly, hands‑on experience.</p>
+          </div>
+          <div>
+            <a class="btn btn-grad" href="https://forms.office.com/r/Pu0uPwmwk7" target="_blank" rel="noreferrer">Register Now</a>
+            <button class="btn btn-grad" id="qrBtnBottom" aria-haspopup="dialog" aria-controls="qrDlg">Show QR</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq">
+      <div class="container">
+        <h2 class="section-title">FAQs</h2>
+        <div class="grid-2">
+          <div class="card"><div class="card-inner"><h3>Who is this for?</h3><p class="muted">Anyone curious about AI — no technical background needed.</p></div></div>
+          <div class="card"><div class="card-inner"><h3>Do I need paid tools?</h3><p class="muted">No. We’ll use free tools, with optional notes on paid features.</p></div></div>
+          <div class="card"><div class="card-inner"><h3>Will I get recordings?</h3><p class="muted">Yes, session recordings and quick reference guides will be shared.</p></div></div>
+          <div class="card"><div class="card-inner"><h3>Is there a certificate?</h3><p class="muted">Yes — complete an optional light test + short demo to earn it.</p></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Questions? Email <a href="mailto:kalyani@ez-ai.pro">kalyani@ez-ai.pro</a> or WhatsApp +91 98503 87853</p>
+      <p style="margin-top:6px; font-size:12px">© <span id="year"></span> EZ‑AI. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- QR Dialog (shared) -->
+  <dialog id="qrDlg" aria-label="AI Made EZ — Payment">
+    <button class="close" aria-label="Close dialog" onclick="document.getElementById('qrDlg').close()">×</button>
+    <div class="dialog-header">Scan to Pay</div>
+    <div class="qr"><img id="qr-img" alt="QR for AI Made EZ payment" src="REPLACE_WITH_QR_URL" style="max-height:420px; border-radius:16px"/></div>
+    <div class="dialog-body">
+      <a class="btn btn-grad" href="https://forms.office.com/r/Pu0uPwmwk7" target="_blank" rel="noreferrer">Open Registration Form</a>
+    </div>
+  </dialog>
+
+  <script>
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Open dialog from any of the QR buttons
+    const dlg = document.getElementById('qrDlg');
+    ['qrBtn','qrBtnHero','qrBtnBottom'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('click', () => dlg.showModal());
+    });
+
+    // Smooth-scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if (el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+  </script>
+</body>
+</html>
